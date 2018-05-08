@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 
-
 const defaultStyle = {
   cardStyle: {
     boxShadow: '0px 0px 0px',
@@ -21,7 +20,6 @@ class Cards extends Component {
     this.state = {
       cardStyle: defaultStyle.cardStyle,
       cardTextColor: defaultStyle.cardTextColor,
-
     };
   }
 
@@ -34,22 +32,18 @@ class Cards extends Component {
   }
 
   render() {
-    const cardIndex = this.props.index;
-    const cardTitle = this.props.title;
-    const cardText = this.props.text;
-    const onHoverChange = this.props.onHover;
+    const { index, title, text, onHover } = this.props;
 
     return (
-
       <Card
-        onMouseOver={(e) => onHoverChange(e, cardIndex)}
+        onMouseOver={(e) => onHover(e, index)}
         style={this.state.cardStyle}
         containerStyle={{
           marginBottom: '2px',
         }}
       >
         <CardHeader
-          title={cardTitle}
+          title={title}
           titleStyle={{
             fontWeight: 'bold',
             color: this.state.cardTextColor,
@@ -62,7 +56,7 @@ class Cards extends Component {
             marginBottom: '20px',
           }}
         >
-          {cardText}
+          {text}
         </CardText>
       </Card>
     );

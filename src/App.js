@@ -4,8 +4,6 @@ import './index.css';
 import CardSection from './CardSection';
 import contents from './content/index';
 
-
-
 class App extends Component {
   render() {
     return (

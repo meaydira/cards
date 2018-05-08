@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import cuteBanner from './img/cuteBanner.png';
 
-
 import Cards from './Cards';
 
 const ImageContainer = styled.div`
-  
   margin-right: 300px;
   margin-left: 300px;
 `;
@@ -27,18 +25,9 @@ const PostContainer = styled.div`
 class CardSection extends Component {
   constructor(props) {
     super(props);
-    const content = [];
-
-    for (let i = 0; i < 3; i++) {
-      content.push({
-        key: this.props.content.key,
-        title: this.props.content.title,
-        text: this.props.content.title,
-      });
-    }
     this.state = {
       hoveredPostIndex: 0,
-      contents: content,
+      contents: this.props.content,
     };
     this.handleIndexChange = this.handleIndexChange.bind(this);
   }
@@ -69,7 +58,6 @@ class CardSection extends Component {
             />
           ))}
         </PostContainer>
-
       </div>
     );
   }
